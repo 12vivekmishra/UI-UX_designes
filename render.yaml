@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: loan-calc-ui
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NODE_VERSION
+        value: 18.18.0
+    buildFilter:
+      paths:
+        - package.json
+        - vite.config.ts
+        - src/**

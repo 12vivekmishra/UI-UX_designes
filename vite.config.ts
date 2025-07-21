@@ -1,29 +1,17 @@
-import { defineConfig, Plugin } from "vite";
-import react from "@vitejs/plugin-react-swc";
-import path from "path";
-import { createServer } from "./server";
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react-swc';
+import path from 'path';
 
 export default defineConfig({
-  base: "/UI-UX_designes/", // 👈 REQUIRED for GitHub Pages
+  base: "/", // or keep as "./" for Render
   build: {
-    outDir: "dist",
+    outDir: "dist"
   },
-  plugins: [react(), expressPlugin()],
+  plugins: [react()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./client"),
-      "@shared": path.resolve(__dirname, "./shared"),
-    },
-  },
+      "@shared": path.resolve(__dirname, "./shared")
+    }
+  }
 });
-
-function expressPlugin(): Plugin {
-  return {
-    name: "express-plugin",
-    apply: "serve",
-    configureServer(server) {
-      const app = createServer();
-      server.middlewares.use(app);
-    },
-  };
-}
