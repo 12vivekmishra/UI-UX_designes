@@ -1,13 +1,14 @@
-import { defineConfig } from "vite";
+import { defineConfig, Plugin } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
+import { createServer } from "./server";
 
 export default defineConfig({
-  base: "/UI-UX_designes/", // ✅ very important for GitHub Pages
+  base: "/UI-UX_designes/", // 👈 REQUIRED for GitHub Pages
   build: {
-    outDir: "dist", // must match deploy folder
+    outDir: "dist",
   },
-  plugins: [react()],
+  plugins: [react(), expressPlugin()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./client"),
@@ -15,3 +16,14 @@ export default defineConfig({
     },
   },
 });
+
+function expressPlugin(): Plugin {
+  return {
+    name: "express-plugin",
+    apply: "serve",
+    configureServer(server) {
+      const app = createServer();
+      server.middlewares.use(app);
+    },
+  };
+}
