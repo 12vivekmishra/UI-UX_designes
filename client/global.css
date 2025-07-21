@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Tailwind CSS theme
+   * tailwind.config.ts expects the following color variables to be expressed as HSL values.
+   * A different format will require also updating the theme in tailwind.config.ts.
+  */
+  :root {
+    --background: 220 20% 97%;
+    --foreground: 220 10% 15%;
+
+    --card: 220 20% 97%;
+    --card-foreground: 220 10% 15%;
+
+    --popover: 220 20% 97%;
+    --popover-foreground: 220 10% 15%;
+
+    --primary: 210 85% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 15% 92%;
+    --secondary-foreground: 220 10% 25%;
+
+    --muted: 220 15% 92%;
+    --muted-foreground: 220 8% 45%;
+
+    --accent: 210 75% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 75% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 85%;
+    --input: 220 15% 90%;
+    --ring: 210 85% 55%;
+
+    --radius: 1rem;
+
+    /* Financial theme colors */
+    --financial-50: 210 100% 97%;
+    --financial-100: 210 95% 92%;
+    --financial-200: 210 85% 85%;
+    --financial-300: 210 75% 75%;
+    --financial-400: 210 70% 65%;
+    --financial-500: 210 85% 55%;
+    --financial-600: 210 80% 45%;
+    --financial-700: 210 75% 35%;
+    --financial-800: 210 70% 25%;
+    --financial-900: 210 65% 15%;
+
+    --sidebar-background: 220 20% 95%;
+    --sidebar-foreground: 220 10% 25%;
+    --sidebar-primary: 210 85% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 15% 90%;
+    --sidebar-accent-foreground: 220 10% 25%;
+    --sidebar-border: 220 15% 82%;
+    --sidebar-ring: 210 85% 55%;
+  }
+
+  .dark {
+    --background: 220 25% 8%;
+    --foreground: 220 10% 92%;
+
+    --card: 220 20% 12%;
+    --card-foreground: 220 10% 92%;
+
+    --popover: 220 20% 12%;
+    --popover-foreground: 220 10% 92%;
+
+    --primary: 210 85% 60%;
+    --primary-foreground: 220 25% 8%;
+
+    --secondary: 220 20% 18%;
+    --secondary-foreground: 220 10% 85%;
+
+    --muted: 220 20% 18%;
+    --muted-foreground: 220 8% 55%;
+
+    --accent: 210 75% 65%;
+    --accent-foreground: 220 25% 8%;
+
+    --destructive: 0 75% 65%;
+    --destructive-foreground: 220 25% 8%;
+
+    --border: 220 20% 20%;
+    --input: 220 20% 18%;
+    --ring: 210 85% 60%;
+
+    /* Financial theme colors - dark mode */
+    --financial-50: 210 50% 85%;
+    --financial-100: 210 55% 78%;
+    --financial-200: 210 60% 70%;
+    --financial-300: 210 65% 62%;
+    --financial-400: 210 70% 54%;
+    --financial-500: 210 85% 60%;
+    --financial-600: 210 80% 50%;
+    --financial-700: 210 75% 40%;
+    --financial-800: 210 70% 30%;
+    --financial-900: 210 65% 20%;
+
+    --sidebar-background: 220 20% 10%;
+    --sidebar-foreground: 220 10% 85%;
+    --sidebar-primary: 210 85% 60%;
+    --sidebar-primary-foreground: 220 25% 8%;
+    --sidebar-accent: 220 20% 16%;
+    --sidebar-accent-foreground: 220 10% 85%;
+    --sidebar-border: 220 20% 22%;
+    --sidebar-ring: 210 85% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .neumorph {
+    @apply shadow-neumorph dark:shadow-neumorph-dark;
+  }
+
+  .neumorph-outset {
+    @apply shadow-neumorph-outset dark:shadow-neumorph-outset-dark;
+  }
+
+  .glassmorphism {
+    @apply backdrop-blur-md bg-white/10 dark:bg-white/5 border border-white/20 dark:border-white/10 shadow-glass dark:shadow-glass-dark;
+  }
+
+  .financial-gradient {
+    @apply bg-gradient-to-br from-financial-400 via-financial-500 to-financial-600;
+  }
+
+  .financial-gradient-muted {
+    @apply bg-gradient-to-br from-financial-100 via-financial-200 to-financial-300 dark:from-financial-800 dark:via-financial-700 dark:to-financial-600;
+  }
+}
